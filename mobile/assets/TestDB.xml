@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="LEclipse" size="247.000000 173.979431" />
+    <ImageTarget name="LeftHand" size="247.000000 173.958572" />
+    <ImageTarget name="TajMahal" size="247.000000 174.790466" />
+  </Tracking>
+</QCARConfig>

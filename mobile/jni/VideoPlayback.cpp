@@ -77,9 +77,10 @@ enum MEDIA_STATE {
     ERROR                               =  6
 };
 
-static const int NUM_TARGETS = 2;
+static const int NUM_TARGETS = 3;
 static const int STONES = 0;
 static const int CHIPS = 1;
+static const int ECLIPSE = 2;
 
 MEDIA_STATE currentStatus[NUM_TARGETS];
 
@@ -232,7 +233,7 @@ Java_com_qualcomm_QCARSamples_VideoPlayback_VideoPlayback_loadTrackerData(JNIEnv
     }
 
     // Load the data sets:
-    if (!dataSetStonesAndChips->load("StonesAndChips.xml", QCAR::DataSet::STORAGE_APPRESOURCE))
+    if (!dataSetStonesAndChips->load("TestDB.xml", QCAR::DataSet::STORAGE_APPRESOURCE))
     {
         LOG("Failed to load data set.");
         return 0;
@@ -372,7 +373,7 @@ Java_com_qualcomm_QCARSamples_VideoPlayback_VideoPlaybackRenderer_setVideoDimens
         uvMultMat4f(videoQuadTextureCoordsTransformedStones[4], videoQuadTextureCoordsTransformedStones[5], videoQuadTextureCoords[4], videoQuadTextureCoords[5], mtx);
         uvMultMat4f(videoQuadTextureCoordsTransformedStones[6], videoQuadTextureCoordsTransformedStones[7], videoQuadTextureCoords[6], videoQuadTextureCoords[7], mtx);
     }
-    else if (target == CHIPS)
+    else //if (target == CHIPS)
     {
         uvMultMat4f(videoQuadTextureCoordsTransformedChips[0], videoQuadTextureCoordsTransformedChips[1], videoQuadTextureCoords[0], videoQuadTextureCoords[1], mtx);
         uvMultMat4f(videoQuadTextureCoordsTransformedChips[2], videoQuadTextureCoordsTransformedChips[3], videoQuadTextureCoords[2], videoQuadTextureCoords[3], mtx);
@@ -434,10 +435,12 @@ Java_com_qualcomm_QCARSamples_VideoPlayback_VideoPlaybackRenderer_renderFrame(JN
         int currentTarget;
 
         // We store the modelview matrix to be used later by the tap calculation
-        if (strcmp(imageTarget.getName(), "stones") == 0)
+        if (strcmp(imageTarget.getName(), "TajMahal") == 0)
             currentTarget=STONES;
-        else
+        else if (strcmp(imageTarget.getName(), "LeftHand") == 0)
             currentTarget=CHIPS;
+        else
+            currentTarget=ECLIPSE;
 
         modelViewMatrix[currentTarget] = QCAR::Tool::convertPose2GLMatrix(trackableResult->getPose());
 
@@ -979,6 +982,7 @@ Java_com_qualcomm_QCARSamples_VideoPlayback_VideoPlaybackRenderer_initRendering(
 
     keyframeQuadAspectRatio[STONES] = (float)textures[0]->mHeight / (float)textures[0]->mWidth;
     keyframeQuadAspectRatio[CHIPS]  = (float)textures[1]->mHeight / (float)textures[1]->mWidth;
+    keyframeQuadAspectRatio[ECLIPSE]  = (float)textures[1]->mHeight / (float)textures[1]->mWidth; //ARUN
 
 }
 

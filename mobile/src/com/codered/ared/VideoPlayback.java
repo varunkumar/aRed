@@ -97,9 +97,10 @@ public class VideoPlayback extends Activity
     private Activity mCurrentActivity                   = null;
 
     // Movie for the Targets:
-    public static final int NUM_TARGETS                 = 2;
+    public static final int NUM_TARGETS                 = 3;
     public static final int STONES                      = 0;
     public static final int CHIPS                       = 1;
+    public static final int ECLIPSE                     = 2;
     private VideoPlayerHelper mVideoPlayerHelper[]      = null;
     private int mSeekPosition[]                         = null;
     private boolean mWasPlaying[]                       = null;
@@ -369,8 +370,11 @@ public class VideoPlayback extends Activity
             mVideoPlayerHelper[i].setActivity(this);
         }
 
-        mMovieName[STONES] = "VuforiaSizzleReel_1.m4v";
-        mMovieName[CHIPS] = "VuforiaSizzleReel_2.m4v";
+        mMovieName[STONES] = Environment.getExternalStorageDirectory().getPath() + "/aRed/TajMahal.mp4";
+        DebugLog.LOGD("Arun: Path is" + mMovieName[STONES]);
+        //mMovieName[STONES] = "TajMahal.mp4";
+        mMovieName[CHIPS] = Environment.getExternalStorageDirectory().getPath() + "/aRed/LeftHand.mp4";
+        mMovieName[ECLIPSE] = Environment.getExternalStorageDirectory().getPath() + "/aRed/LEclipse.mp4";
 
         mCurrentActivity = this;
 
