@@ -482,9 +482,11 @@ public class VideoPlayback extends Activity
      * use for rendering. */
     private void loadTextures()
     {
-        mTextures.add(Texture.loadTextureFromApk("VuforiaSizzleReel_1.png",
+        mTextures.add(Texture.loadTextureFromApk("ared_video.png",
                 getAssets()));
-        mTextures.add(Texture.loadTextureFromApk("VuforiaSizzleReel_2.png",
+        mTextures.add(Texture.loadTextureFromApk("ared_video.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("ared_video.png",
                 getAssets()));
         mTextures.add(Texture.loadTextureFromApk("play.png",
                 getAssets()));

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">aRed</string>
+    <string name="app_name">AREd</string>
     <string name="app_description">Augmented Reality in Education</string>
-    <string name="activity_splash_title">aRed</string>
+    <string name="activity_splash_title">AREd</string>
     <string name="activity_splash_subtitle">Augmented Reality in Education</string>
     <string name="about_title">About</string>
     <string name="about_text">This sample app illustrates how to recognize and track English words in real time. As words are recognized they are added to the list of words at the bottom of the screen.&lt;br/&gt; &lt;br/&gt;To use this app:&lt;br/&gt; &lt;br/&gt;1. Find the word you would like to recognize&lt;br/&gt; &lt;br/&gt;2. Center the word in the viewing window  &lt;br/&gt; &lt;br/&gt;3. The word will be outlined, tracked and added to the list at the bottom of the screen&lt;br/&gt;&lt;br/&gt;Test content is available at &lt;a href=&quot;https://developer.vuforia.com/resources/sample-apps&quot;&gt;developer.vuforia.com/resources/sample-apps&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&amp;copy; 2013 Qualcomm Austria Research Center GmbH. All rights reserved.&lt;br/&gt;Subject to agreements at &lt;a href=&quot;http://developer.vuforia.com/legal/EULA&quot;&gt;developer.vuforia.com/legal/EULA &lt;/a&gt;&quot;&lt;br/&gt;</string>
