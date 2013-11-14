@@ -742,7 +742,7 @@ public class TextReco extends Activity {
                     		wordListLayout.removeAllViews();
                     		
                     		VideoView myVideoView = new VideoView(TextReco.this);
-                    	    myVideoView.setVideoPath("/sdcard/data/aRed/Mahatma Gandhi First Television Interview (30 April 1931).mp4");
+                    	    myVideoView.setVideoPath("/sdcard/data/aRed/Gandhi.mp4");
                     	    myVideoView.requestFocus();
                     	    myVideoView.bringToFront();
                     	    
@@ -757,7 +757,7 @@ public class TextReco extends Activity {
                     		wordListLayout.removeAllViews();
                     		
                     		VideoView myVideoView = new VideoView(TextReco.this);
-                    	    myVideoView.setVideoPath("/sdcard/data/aRed/Hyderabad International Airport at Shamshabad.mp4");
+                    	    myVideoView.setVideoPath("/sdcard/data/aRed/Hyderabad.mp4");
                     	    myVideoView.requestFocus();
                     	    myVideoView.bringToFront();
                     	    myVideoView.start();

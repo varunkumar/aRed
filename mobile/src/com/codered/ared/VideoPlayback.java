@@ -39,25 +39,24 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.view.ViewGroup.LayoutParams;
 import android.view.MotionEvent;
-
-import android.view.GestureDetector;
-import android.view.GestureDetector.OnDoubleTapListener;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codered.ared.VideoPlayerHelper.MEDIA_STATE;
 import com.qualcomm.QCAR.QCAR;
-import com.codered.ared.R;
 
 /** The AR activity for the VideoPlayback sample. */
 public class VideoPlayback extends Activity
@@ -370,11 +369,11 @@ public class VideoPlayback extends Activity
             mVideoPlayerHelper[i].setActivity(this);
         }
 
-        mMovieName[STONES] = Environment.getExternalStorageDirectory().getPath() + "/aRed/TajMahal.mp4";
+        mMovieName[STONES] = "/sdcard/data/aRed/TajMahal.mp4";
         DebugLog.LOGD("Arun: Path is" + mMovieName[STONES]);
         //mMovieName[STONES] = "TajMahal.mp4";
-        mMovieName[CHIPS] = Environment.getExternalStorageDirectory().getPath() + "/aRed/LeftHand.mp4";
-        mMovieName[ECLIPSE] = Environment.getExternalStorageDirectory().getPath() + "/aRed/LEclipse.mp4";
+        mMovieName[CHIPS] = "/sdcard/data/aRed/LeftHand.mp4";
+        mMovieName[ECLIPSE] = "/sdcard/data/aRed/LEclipse.mp4";
 
         mCurrentActivity = this;
 
