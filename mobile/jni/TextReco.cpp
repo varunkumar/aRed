@@ -199,8 +199,10 @@ Java_com_codered_ared_TextReco_loadTrackerData(JNIEnv *, jobject)
     QCAR::Tracker* textTracker = trackerManager.getTracker(QCAR::Tracker::TEXT_TRACKER);
     QCAR::TextTracker* tt = reinterpret_cast<QCAR::TextTracker*>(textTracker);
     tt->getWordList()->loadWordList("Vuforia-English-word.vwl", QCAR::WordList::STORAGE_APPRESOURCE);
-
     LOG("Successfully loaded default word list");
+
+    tt->getWordList()->loadWordList("AdditionalWords.lst", QCAR::WordList::STORAGE_APPRESOURCE);
+    LOG("Successfully loaded additional word list");
 
     return 1;
 }

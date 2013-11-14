@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class AboutScreen extends Activity implements OnClickListener
 {
     private TextView mAboutText;
-    private Button mStartButton;
+    private Button mStartButton, mStartVideoButton;
 
 
     public void onCreate(Bundle savedInstanceState)
@@ -33,6 +33,9 @@ public class AboutScreen extends Activity implements OnClickListener
 
         mStartButton = (Button) findViewById(R.id.button_start);
         mStartButton.setOnClickListener(this);
+        
+        mStartVideoButton = (Button) findViewById(R.id.button_start_video);
+        mStartVideoButton.setOnClickListener(this);
     }
 
 
@@ -40,6 +43,13 @@ public class AboutScreen extends Activity implements OnClickListener
     private void startARActivity()
     {
         Intent i = new Intent(this, TextReco.class);
+        startActivity(i);
+    }
+    
+    /** Starts the VideoPlayback main activity */
+    private void startARVideoActivity()
+    {
+        Intent i = new Intent(this, VideoPlayback.class);
         startActivity(i);
     }
 
@@ -51,6 +61,8 @@ public class AboutScreen extends Activity implements OnClickListener
         case R.id.button_start:
             startARActivity();
             break;
+        case R.id.button_start_video:
+        	startARVideoActivity();
         }
     }
 }

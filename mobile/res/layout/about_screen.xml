@@ -42,5 +42,13 @@
         android:layout_weight="0"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/button_start" />
-
+    
+    <Button
+        android:id="@+id/button_start_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/button_start_video" />
+    
 </LinearLayout>

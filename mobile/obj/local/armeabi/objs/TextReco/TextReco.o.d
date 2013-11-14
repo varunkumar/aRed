@@ -1,5 +1,5 @@
-/Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/obj/local/armeabi/objs/TextReco/TextReco.o: \
- /Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/TextReco.cpp \
+/Users/Varun/Repos/github/aRed/mobile/obj/local/armeabi/objs/TextReco/TextReco.o: \
+ /Users/Varun/Repos/github/aRed/mobile/jni/TextReco.cpp \
  /Users/Varun/Apps/android-ndk-r9b/platforms/android-8/arch-arm/usr/include/jni.h \
  /Users/Varun/Apps/android-ndk-r9b/platforms/android-8/arch-arm/usr/include/sys/cdefs.h \
  /Users/Varun/Apps/android-ndk-r9b/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -56,9 +56,9 @@
  /Users/Varun/Apps/vuforia-sdk-android-2-6-10/build/include/QCAR/WordList.h \
  /Users/Varun/Apps/vuforia-sdk-android-2-6-10/build/include/QCAR/UpdateCallback.h \
  /Users/Varun/Apps/vuforia-sdk-android-2-6-10/build/include/QCAR/DataSet.h \
- /Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/SampleUtils.h \
- /Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/LineShaders.h \
- /Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/Quad.h
+ /Users/Varun/Repos/github/aRed/mobile/jni/SampleUtils.h \
+ /Users/Varun/Repos/github/aRed/mobile/jni/LineShaders.h \
+ /Users/Varun/Repos/github/aRed/mobile/jni/Quad.h
 
 /Users/Varun/Apps/android-ndk-r9b/platforms/android-8/arch-arm/usr/include/jni.h:
 
@@ -172,8 +172,8 @@
 
 /Users/Varun/Apps/vuforia-sdk-android-2-6-10/build/include/QCAR/DataSet.h:
 
-/Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/SampleUtils.h:
+/Users/Varun/Repos/github/aRed/mobile/jni/SampleUtils.h:
 
-/Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/LineShaders.h:
+/Users/Varun/Repos/github/aRed/mobile/jni/LineShaders.h:
 
-/Users/Varun/Repos/github/aRed/mobile/test/TextReco-2-6-7/jni/Quad.h:
+/Users/Varun/Repos/github/aRed/mobile/jni/Quad.h:
