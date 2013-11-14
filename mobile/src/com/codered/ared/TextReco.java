@@ -1,14 +1,23 @@
 package com.codered.ared;
 
+import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,15 +31,21 @@ import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceHolder.Callback;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.qualcomm.QCAR.QCAR;
-import com.codered.ared.R;
 
 /** The main activity for the TextReco sample. */
 public class TextReco extends Activity {
@@ -676,7 +691,9 @@ public class TextReco extends Activity {
             public void run() {
                 LinearLayout wordListLayout = (LinearLayout) mUILayout
                         .findViewById(R.id.wordList);
-                wordListLayout.removeAllViews();
+                
+                if (mediaState.equals("none"))
+                	wordListLayout.removeAllViews();
 
                 if (words.size() > 0) {
                     LayoutParams params = wordListLayout.getLayoutParams();
@@ -688,32 +705,92 @@ public class TextReco extends Activity {
 
                     int count = -1;
                     int nbWords = textInfo[2]; // number of words we can display
+                    
+                    // Analyse the words
+                    Map<String, Boolean> wordsContext = new HashMap<String, Boolean>(); 
                     for (String word : words) {
                         count++;
-                        if (count == nbWords) {
-                            break;
+                        
+                        if (mediaState.equals("none")) {
+                        	if (count >= nbWords) {
+                        		count = nbWords;
+                                continue;
+                            }
+	                        TextView tv = new TextView(TextReco.this);
+	                        tv.setText(word);
+	                        LinearLayout.LayoutParams txtParams = new LinearLayout.LayoutParams(
+	                                LayoutParams.MATCH_PARENT,
+	                                LayoutParams.WRAP_CONTENT);
+	                        txtParams.setMargins(0, (count == 0) ? WORDLIST_MARGIN
+	                                : 0, 0,
+	                                (count == (nbWords - 1)) ? WORDLIST_MARGIN : 0);
+	                        tv.setLayoutParams(txtParams);
+	                        tv.setGravity(Gravity.CENTER_VERTICAL
+	                                | Gravity.CENTER_HORIZONTAL);
+	                        tv.setTextSize(textInfo[0]);
+	                        tv.setHeight(textInfo[1]);
+	                        
+	                        wordListLayout.addView(tv);
                         }
-                        TextView tv = new TextView(TextReco.this);
-                        tv.setText(word);
-                        LinearLayout.LayoutParams txtParams = new LinearLayout.LayoutParams(
-                                LayoutParams.MATCH_PARENT,
-                                LayoutParams.WRAP_CONTENT);
-                        txtParams.setMargins(0, (count == 0) ? WORDLIST_MARGIN
-                                : 0, 0,
-                                (count == (nbWords - 1)) ? WORDLIST_MARGIN : 0);
-                        tv.setLayoutParams(txtParams);
-                        tv.setGravity(Gravity.CENTER_VERTICAL
-                                | Gravity.CENTER_HORIZONTAL);
-                        tv.setTextSize(textInfo[0]);
-                        tv.setHeight(textInfo[1]);
+                        
+                        wordsContext.put(word.toLowerCase(), true);
+                    }
+                    
+                    if (wordsContext.containsKey("mahatma") && wordsContext.containsKey("gandhi")) {
+                    	// Show video
+                    	if (!mediaState.equals("mahatma")) {
+                    		wordListLayout.removeAllViews();
+                    		
+                    		VideoView myVideoView = new VideoView(TextReco.this);
+                    	    myVideoView.setVideoPath("/sdcard/data/aRed/Mahatma Gandhi First Television Interview (30 April 1931).mp4");
+                    	    myVideoView.requestFocus();
+                    	    myVideoView.bringToFront();
+                    	    
+                    	    wordListLayout.addView(myVideoView, new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
+                    	    
+                    	    myVideoView.start();
+                    	}
+                    	mediaState = "mahatma";
+                    } else if (wordsContext.containsKey("gandhi") && wordsContext.containsKey("airport")) {
+                    	// Show video
+                    	if (!mediaState.equals("airport")) {
+                    		wordListLayout.removeAllViews();
+                    		
+                    		VideoView myVideoView = new VideoView(TextReco.this);
+                    	    myVideoView.setVideoPath("/sdcard/data/aRed/Hyderabad International Airport at Shamshabad.mp4");
+                    	    myVideoView.requestFocus();
+                    	    myVideoView.bringToFront();
+                    	    myVideoView.start();
 
-                        //wordListLayout.addView(tv);
+                    	    wordListLayout.addView(myVideoView, new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT)); 
+                    	}
+                    	mediaState = "airport";
+                    } else if (wordsContext.containsKey("area") && wordsContext.containsKey("circle")) {
+                    	// Show webview
+                    	if (!mediaState.equals("area")) {
+                    		wordListLayout.removeAllViews();
+                    		mediaState = "area";
+	                    	Toast.makeText(wordListLayout.getContext(), "Webview loaded", 2000).show();
+	                    	WebView webView = new WebView(TextReco.this);
+	                    	LinearLayout.LayoutParams txtParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+	                        txtParams.setMargins(0, WORDLIST_MARGIN, 0, 0);
+	                        webView.setLayoutParams(txtParams);
+	                        
+	                    	webView.setWebViewClient(new MyWebViewClient());
+	                    	webView.loadUrl("http://m.wolframalpha.com/input/?i=area+of+a+circle");
+	                    	wordListLayout.addView(webView);
+                    	}
+                    	mediaState = "area";
+                    } else {
+                    	mediaState = "none";
                     }
                 }
             }
         });
     }
-
+    
+    private String mediaState = "";
+    
     /** A helper for loading native libraries stored in "libs/armeabi*". */
     public static boolean loadLibrary(String nLibName) {
         try {
@@ -889,5 +966,19 @@ public class TextReco extends Activity {
         result[1] = layoutHeight;
         result[2] = totalTextHeight / layoutHeight;
         return result;
+    }
+}
+
+class MyWebViewClient extends WebViewClient {
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if (Uri.parse(url).getHost().equals("www.google.com")) {
+            // This is my web site, so do not override; let my WebView load the page
+            return false;
+        }
+        
+        // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        return true;
     }
 }

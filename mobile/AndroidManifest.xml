@@ -53,6 +53,8 @@
         Add this permission to allow opening network sockets.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!--
         Add this permission to check which network access properties (e.g.
