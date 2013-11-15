@@ -369,11 +369,11 @@ public class VideoPlayback extends Activity
             mVideoPlayerHelper[i].setActivity(this);
         }
 
-        mMovieName[STONES] = "/sdcard/data/aRed/TajMahal.mp4";
+        mMovieName[STONES] = "TajMahal.mp4";
         DebugLog.LOGD("Arun: Path is" + mMovieName[STONES]);
         //mMovieName[STONES] = "TajMahal.mp4";
-        mMovieName[CHIPS] = "/sdcard/data/aRed/LeftHand.mp4";
-        mMovieName[ECLIPSE] = "/sdcard/data/aRed/LEclipse.mp4";
+        mMovieName[CHIPS] = "LeftHand.mp4";
+        mMovieName[ECLIPSE] = "LEclipse.mp4";
 
         mCurrentActivity = this;
 
@@ -859,9 +859,9 @@ public class VideoPlayback extends Activity
                 };
 
                 mSplashScreenHandler.postDelayed(mSplashScreenRunnable,
-                                                    newSplashScreenTime);
+                                                    0);
                 break;
-
+ 
             case APPSTATUS_CAMERA_STOPPED:
                 // Call the native function to stop the camera:
                 stopCamera();

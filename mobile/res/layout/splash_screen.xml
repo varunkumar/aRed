@@ -28,7 +28,7 @@
         android:textColor="@color/gray"
         android:textSize="@dimen/splash_subtitle" />
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/vuforia_splash_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,17 +36,36 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:contentDescription="@string/content_desc_vuforia_logo"
-        android:src="@drawable/activity_splash_logo" />
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/button_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_start" />
+        
+        <Button
+            android:id="@+id/button_start_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_start_video" />
+
+        <Button
+            android:id="@+id/button_start_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_start_settings" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/vuforia_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/vuforia_splash_logo"
+        android:layout_below="@id/splash_screen_subtitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="100dp"
         android:contentDescription="@string/content_desc_vuforia_logo"
         android:scaleType="fitEnd"
         android:src="@drawable/blueprint_vuforia" />
