@@ -27,9 +27,9 @@ The source code is available [here](https://github.com/varunkumar/aRed) under [M
 
 Video Sources
 -------
-LEclipse.mp4 - https://www.khanacademy.org/partner-content/nasa/measuringuniverse/spacemath1/v/lunareclipse
-LeftHand.mp4 - http://www.youtube.com/watch?v=6DGUTZw9XIg
-TajMahal.mp4 - http://www.youtube.com/watch?v=KZzgvng_5GE
+- LEclipse.mp4 - https://www.khanacademy.org/partner-content/nasa/measuringuniverse/spacemath1/v/lunareclipse
+- LeftHand.mp4 - http://www.youtube.com/watch?v=6DGUTZw9XIg
+- TajMahal.mp4 - http://www.youtube.com/watch?v=KZzgvng_5GE
 
 -- [Varun](http://www.varunkumar.me)
 
