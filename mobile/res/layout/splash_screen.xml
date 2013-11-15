@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal"
         >
@@ -43,19 +43,24 @@
             android:id="@+id/button_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_start" />
+            android:text="@string/button_start" 
+            android:background="@drawable/text"
+            android:layout_marginRight="20dp"/>
         
         <Button
             android:id="@+id/button_start_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_start_video" />
+            android:text="@string/button_start_video" 
+            android:background="@drawable/image"
+            android:layout_marginRight="20dp"/>
 
         <Button
             android:id="@+id/button_start_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_start_settings" />
+            android:text="@string/button_start_settings" 
+            android:background="@drawable/setting"/>
     </LinearLayout>
 
     <ImageView

@@ -486,13 +486,13 @@ public class VideoPlayback extends Activity
                 getAssets()));
         mTextures.add(Texture.loadTextureFromApk("ared_video.png",
                 getAssets()));
-        mTextures.add(Texture.loadTextureFromApk("ared_video.png",
-                getAssets()));
         mTextures.add(Texture.loadTextureFromApk("play.png",
                 getAssets()));
         mTextures.add(Texture.loadTextureFromApk("busy.png",
                 getAssets()));
         mTextures.add(Texture.loadTextureFromApk("error.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("ared_video.png",
                 getAssets()));
     }
 
