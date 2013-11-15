@@ -23,7 +23,13 @@ Contributors
 
 License
 -------
-The source code is available [here](https://github.com/varunkumar/AR Ed) under [MIT licence](http://varunkumar.mit-license.org/). Please send any bugs, feedback, complaints, patches to me at varunkumar[dot]n[at]gmail[dot]com.
+The source code is available [here](https://github.com/varunkumar/aRed) under [MIT licence](http://varunkumar.mit-license.org/). Please send any bugs, feedback, complaints, patches to me at varunkumar[dot]n[at]gmail[dot]com.
+
+Video Sources
+-------
+LEclipse.mp4 - https://www.khanacademy.org/partner-content/nasa/measuringuniverse/spacemath1/v/lunareclipse
+LeftHand.mp4 - http://www.youtube.com/watch?v=6DGUTZw9XIg
+TajMahal.mp4 - http://www.youtube.com/watch?v=KZzgvng_5GE
 
 -- [Varun](http://www.varunkumar.me)
 
